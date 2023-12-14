@@ -1,0 +1,5 @@
+s.size() is used to calculate the length of string s
+#include<bits/stdc++.h> : contains all header files required while coding
+s[i] can be used to access character of string s
+
+array is a data structure

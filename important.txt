@@ -1,0 +1,1 @@
+int pirme[100] = {0};  initializing the entire array with 0
