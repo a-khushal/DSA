@@ -1,0 +1,11 @@
+linked list is a linear ds that stores a list of values.
+
+limitations in arrays:
+1. Fixed Size
+2. contiguous block of memory
+3. Inserting or deleting is costly
+
+Properties of linked lists:
+1. Size can be modofied
+2. Non-contiguous memory
+3. Insertion and deletion at any point is easier, i.e, we only will have to chaneg the links
