@@ -9,3 +9,9 @@ Properties of linked lists:
 1. Size can be modofied
 2. Non-contiguous memory
 3. Insertion and deletion at any point is easier, i.e, we only will have to chaneg the links
+
+
+doubly linked lists:
+Node: Previous Data Next
+1st node's prev is NULL
+last node's next is NULL

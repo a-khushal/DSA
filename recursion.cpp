@@ -110,11 +110,10 @@ void replacePI(string st){
 }
 
 void towerOfHanoi(int n, char source, char destination, char helper){
-
+    // base case
     if(n==0){
         return;
     }
-
     towerOfHanoi(n-1, source, helper, destination);
     cout<<"Move from "<< source<<" to "<<destination<<endl;
     towerOfHanoi(n-1, helper, destination, source);
@@ -299,11 +298,11 @@ int main(void){
 
     // cout<<friendsPair(4)<<endl;
 
-    int wt[] = {10, 20, 30};
-    int value[] = {100, 50, 150};
-    int W = 50;
+    // int wt[] = {10, 20, 30};
+    // int value[] = {100, 50, 150};
+    // int W = 50;
 
-    cout<<knapsack(value, wt, 3, W)<<endl;
+    // cout<<knapsack(value, wt, 3, W)<<endl;
 
     return 0;
 

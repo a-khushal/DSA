@@ -1,3 +1,6 @@
+// refer linked_lists.txt for notes
+
+
 #include <iostream> 
 using namespace std;
 
@@ -105,8 +108,8 @@ node* reverse(node* &head){
 
 // recursive way of reversing the linked list: 
 node* reverseRecursion(node* &head){
-
-    // check if list is empty or only one element in head
+ 
+    // check if list is empty or only one element in the list
     if(head == NULL || head->next == NULL){
         return head;
     }
@@ -144,14 +147,68 @@ node* reversek(node* &head, int k){
     return prevptr;
 }
 
+
+// detection and removal of cycle in linked lists: based on Floyd's algorithm/Hare and Tortoise Algorithm
+
+// cycle in linked liste is when a single node is pointed by multiple ones
+
+void makeCycle(node* &head, int pos){
+    node* temp=head;
+    node* startNode;
+
+    int count=1;
+    while(temp->next!=NULL){
+        if(count==pos){
+            startNode = temp;
+        }
+        temp=temp->next;
+        count++;
+    }
+    temp->next = startNode;
+}
+
+bool detectCycle(node* &head){
+    node* slow = head;
+    node* fast = head;
+
+    // fast is always ahead of slow so we check the condition for fast
+    while((fast != NULL) && (fast->next != NULL)){
+        // slow moves to next and fast moves to next's next i.e., slow=tortoise, fast=hare
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if(fast==slow){
+            return true;
+        }
+    }
+    return false;
+}
+
+void removeCycle(node* &head){
+    node* slow = head;
+    node* fast = head;
+
+    do{
+        slow = slow->next;
+        fast = fast->next->next;
+    }while(slow!=fast);
+
+    fast = head;
+    while(fast->next != slow->next){
+        fast = fast->next;
+        slow = slow->next;
+    }
+    slow->next = NULL;
+}
+
 int main(void){
 
     node* head = NULL;
-    insertAtTail(head, 1);
-    insertAtTail(head, 2);
-    insertAtTail(head, 3);
-    insertAtTail(head, 4);
-    display(head);
+    // insertAtTail(head, 1);
+    // insertAtTail(head, 2);
+    // insertAtTail(head, 3);
+    // insertAtTail(head, 4);
+    // display(head);
     // insertAtHead(head, 10);
     // display(head);
     // cout<<search(head, 5)<<endl;
@@ -164,10 +221,23 @@ int main(void){
     // node* newHead1 = reverse(head);
     // newHead1 = reverseRecursion(head);
     // display(newHead);
-    int k=2;
-    node* newHeadK = reversek(head, k);
-    display(newHeadK);
+    // int k=3;
+    // node* newHeadK = reversek(head, k);
+    // display(newHeadK);
 
+
+    insertAtTail(head, 1);
+    insertAtTail(head, 2);
+    insertAtTail(head, 3);
+    insertAtTail(head, 4);
+    insertAtTail(head, 5);
+    insertAtTail(head, 6);
+    makeCycle(head, 3);
+    // display(head);
+    cout<<detectCycle(head)<<endl;
+    removeCycle(head);
+    cout<<detectCycle(head)<<endl;
+    display(head);
 
 
     return 0;
