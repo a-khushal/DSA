@@ -181,8 +181,8 @@ int main(void){
     // cout<<postFixEvaluation("46+2/5*7+")<<endl;
     // cout<<postFixEvaluation("123*4*5/67-+8++")<<endl;
 
-    // infixToPostFix("(a-b/c)*(a/k-l)");
-    cout<<infixToPrefix("(a-b/c)*(a/k-l)")<<endl;
+    infixToPostFix("(a-b/c)*(a/k-l)");
+    // cout<<infixToPrefix("(a-b/c)*(a/k-l)")<<endl;
     
     return 0; 
 }

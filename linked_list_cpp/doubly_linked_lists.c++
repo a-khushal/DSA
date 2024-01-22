@@ -41,7 +41,7 @@ void insertAtTail(node* &head, int val){
 
     temp->next = n;
     n->prev = temp;
-    n->next = NULL;
+    // n->next = NULL;
     // n->next = NULL;// see constructor the new node's next will be pointed to null so doesn't make a difference in writing this
 }
 
@@ -67,7 +67,7 @@ void deletion(node* &head, int pos){
     temp->prev->next = temp->next;
 
     if(temp->next != NULL){ 
-        temp->next->prev = temp->prev; 
+        temp->next->prev = temp->prev;
     }
     delete temp;
 }
@@ -91,7 +91,7 @@ int main(void){
     insertAtTail(head, 4);
     insertAtTail(head, 5);
     insertAtHead(head, 10);
-    deletion(head, 1);
+    deletion(head, 3);
     deleteAtHead(head);
     display(head);
 
